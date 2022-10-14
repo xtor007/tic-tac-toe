@@ -22,4 +22,29 @@ struct Coordinates: Equatable, Hashable {
         y = tag / 10
     }
     
+    func isRight() -> Bool {
+        return x>=0 && x<10 && y>=0 && y<10
+    }
+    
+    func afterMove(_ move: Direction) -> Coordinates {
+        switch move {
+        case .up:
+            return Coordinates(x: x, y: y-1)
+        case .upleft:
+            return Coordinates(x: x-1, y: y-1)
+        case .upright:
+            return Coordinates(x: x+1, y: y-1)
+        case .left:
+            return Coordinates(x: x-1, y: y)
+        case .right:
+            return Coordinates(x: x+1, y: y)
+        case .downleft:
+            return Coordinates(x: x-1, y: y+1)
+        case .downright:
+            return Coordinates(x: x+1, y: y+1)
+        case .down:
+            return Coordinates(x: x, y: y+1)
+        }
+    }
+    
 }
