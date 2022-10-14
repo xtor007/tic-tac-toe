@@ -16,6 +16,11 @@
 		FF754C4C28F984B800C40E0A /* CrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C4B28F984B800C40E0A /* CrossView.swift */; };
 		FF754C4E28F9871200C40E0A /* NoughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C4D28F9871200C40E0A /* NoughtView.swift */; };
 		FF754C5028F9903C00C40E0A /* CrossNoughtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C4F28F9903C00C40E0A /* CrossNoughtView.swift */; };
+		FF754C5528F9934C00C40E0A /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5328F9934C00C40E0A /* GameVC.swift */; };
+		FF754C5628F9934C00C40E0A /* GameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF754C5428F9934C00C40E0A /* GameVC.xib */; };
+		FF754C5828F9936B00C40E0A /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5728F9936B00C40E0A /* GameViewModel.swift */; };
+		FF754C5B28F9AEFF00C40E0A /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5A28F9AEFF00C40E0A /* Position.swift */; };
+		FF754C5D28F9B08100C40E0A /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5C28F9B08100C40E0A /* Coordinates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		FF754C4B28F984B800C40E0A /* CrossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossView.swift; sourceTree = "<group>"; };
 		FF754C4D28F9871200C40E0A /* NoughtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtView.swift; sourceTree = "<group>"; };
 		FF754C4F28F9903C00C40E0A /* CrossNoughtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossNoughtView.swift; sourceTree = "<group>"; };
+		FF754C5328F9934C00C40E0A /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		FF754C5428F9934C00C40E0A /* GameVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameVC.xib; sourceTree = "<group>"; };
+		FF754C5728F9936B00C40E0A /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		FF754C5A28F9AEFF00C40E0A /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		FF754C5C28F9B08100C40E0A /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,7 @@
 		FF754C2D28F9782900C40E0A /* tic-tac-toe */ = {
 			isa = PBXGroup;
 			children = (
+				FF754C5928F9AED500C40E0A /* Model */,
 				FF754C4A28F980CB00C40E0A /* View */,
 				FF754C4428F97B7700C40E0A /* Controller */,
 				FF754C4328F9789000C40E0A /* Resources */,
@@ -92,6 +103,7 @@
 		FF754C4428F97B7700C40E0A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FF754C5228F9932000C40E0A /* GameVC */,
 				FF754C4528F97B8200C40E0A /* MainVC */,
 			);
 			path = Controller;
@@ -114,6 +126,25 @@
 				FF754C4F28F9903C00C40E0A /* CrossNoughtView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FF754C5228F9932000C40E0A /* GameVC */ = {
+			isa = PBXGroup;
+			children = (
+				FF754C5328F9934C00C40E0A /* GameVC.swift */,
+				FF754C5428F9934C00C40E0A /* GameVC.xib */,
+				FF754C5728F9936B00C40E0A /* GameViewModel.swift */,
+			);
+			path = GameVC;
+			sourceTree = "<group>";
+		};
+		FF754C5928F9AED500C40E0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF754C5A28F9AEFF00C40E0A /* Position.swift */,
+				FF754C5C28F9B08100C40E0A /* Coordinates.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +207,7 @@
 			files = (
 				FF754C4928F97BA100C40E0A /* MainVC.xib in Resources */,
 				FF754C3B28F9782E00C40E0A /* LaunchScreen.storyboard in Resources */,
+				FF754C5628F9934C00C40E0A /* GameVC.xib in Resources */,
 				FF754C3828F9782E00C40E0A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,8 +223,12 @@
 				FF754C4828F97BA100C40E0A /* MainVC.swift in Sources */,
 				FF754C3128F9782900C40E0A /* SceneDelegate.swift in Sources */,
 				FF754C4E28F9871200C40E0A /* NoughtView.swift in Sources */,
+				FF754C5828F9936B00C40E0A /* GameViewModel.swift in Sources */,
+				FF754C5528F9934C00C40E0A /* GameVC.swift in Sources */,
 				FF754C5028F9903C00C40E0A /* CrossNoughtView.swift in Sources */,
 				FF754C4C28F984B800C40E0A /* CrossView.swift in Sources */,
+				FF754C5B28F9AEFF00C40E0A /* Position.swift in Sources */,
+				FF754C5D28F9B08100C40E0A /* Coordinates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

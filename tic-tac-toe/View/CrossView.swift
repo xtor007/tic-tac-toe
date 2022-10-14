@@ -19,6 +19,7 @@ class CrossView: UIView, CrossNoughtView {
             view.backgroundColor = .green
             addSubview(view)
         }
+        animate()
     }
     
     func animate() {

@@ -26,9 +26,11 @@ class MainVC: UIViewController {
     
     @IBAction func startGame(_ sender: Any) {
         if let button = sender as? UIButton {
-            print(button.tag)
+            let gameViewModel = GameViewModel(algo: Algo(rawValue: button.tag)!)
+            let gameVC = GameVC(model: gameViewModel)
+            gameVC.modalPresentationStyle = .fullScreen
+            present(gameVC, animated: true)
         }
     }
-    
 
 }

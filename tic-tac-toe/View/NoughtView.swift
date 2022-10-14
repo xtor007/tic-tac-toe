@@ -24,6 +24,7 @@ class NoughtView: UIView, CrossNoughtView {
         addSubview(littleCircle)
         
         bigCircle.alpha = 0
+        animate()
         
     }
     
