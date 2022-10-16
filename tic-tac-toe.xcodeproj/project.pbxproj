@@ -21,6 +21,8 @@
 		FF754C5828F9936B00C40E0A /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5728F9936B00C40E0A /* GameViewModel.swift */; };
 		FF754C5B28F9AEFF00C40E0A /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5A28F9AEFF00C40E0A /* Position.swift */; };
 		FF754C5D28F9B08100C40E0A /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5C28F9B08100C40E0A /* Coordinates.swift */; };
+		FF754C6028FA98DB00C40E0A /* AlgoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C5F28FA98DB00C40E0A /* AlgoManager.swift */; };
+		FF754C6228FA99AD00C40E0A /* NegaMaxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF754C6128FA99AD00C40E0A /* NegaMaxCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		FF754C5728F9936B00C40E0A /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		FF754C5A28F9AEFF00C40E0A /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		FF754C5C28F9B08100C40E0A /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		FF754C5F28FA98DB00C40E0A /* AlgoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoManager.swift; sourceTree = "<group>"; };
+		FF754C6128FA99AD00C40E0A /* NegaMaxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegaMaxCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		FF754C2D28F9782900C40E0A /* tic-tac-toe */ = {
 			isa = PBXGroup;
 			children = (
+				FF754C5E28FA98C300C40E0A /* Algo */,
 				FF754C5928F9AED500C40E0A /* Model */,
 				FF754C4A28F980CB00C40E0A /* View */,
 				FF754C4428F97B7700C40E0A /* Controller */,
@@ -147,6 +152,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FF754C5E28FA98C300C40E0A /* Algo */ = {
+			isa = PBXGroup;
+			children = (
+				FF754C5F28FA98DB00C40E0A /* AlgoManager.swift */,
+				FF754C6128FA99AD00C40E0A /* NegaMaxCell.swift */,
+			);
+			path = Algo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF754C6028FA98DB00C40E0A /* AlgoManager.swift in Sources */,
 				FF754C2F28F9782900C40E0A /* AppDelegate.swift in Sources */,
 				FF754C4828F97BA100C40E0A /* MainVC.swift in Sources */,
 				FF754C3128F9782900C40E0A /* SceneDelegate.swift in Sources */,
@@ -227,6 +242,7 @@
 				FF754C5528F9934C00C40E0A /* GameVC.swift in Sources */,
 				FF754C5028F9903C00C40E0A /* CrossNoughtView.swift in Sources */,
 				FF754C4C28F984B800C40E0A /* CrossView.swift in Sources */,
+				FF754C6228FA99AD00C40E0A /* NegaMaxCell.swift in Sources */,
 				FF754C5B28F9AEFF00C40E0A /* Position.swift in Sources */,
 				FF754C5D28F9B08100C40E0A /* Coordinates.swift in Sources */,
 			);

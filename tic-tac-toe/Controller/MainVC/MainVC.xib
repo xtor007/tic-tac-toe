@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +23,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORI-4g-HDU" customClass="NoughtView" customModule="tic_tac_toe" customModuleProvider="target">
                     <rect key="frame" x="30" y="163" width="100" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ORI-4g-HDU" secondAttribute="height" id="BXm-cZ-I59"/>
                         <constraint firstAttribute="width" constant="100" id="GWG-jg-Xgg"/>
@@ -101,7 +100,7 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJK-dH-YKl" customClass="CrossView" customModule="tic_tac_toe" customModuleProvider="target">
                     <rect key="frame" x="240" y="281" width="100" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="aJK-dH-YKl" secondAttribute="height" id="e8n-oy-dGV"/>
                         <constraint firstAttribute="width" constant="100" id="tth-9W-mz7"/>
@@ -109,7 +108,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsI-7r-gFv" customClass="NoughtView" customModule="tic_tac_toe" customModuleProvider="target">
                     <rect key="frame" x="120" y="537" width="100" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="y4J-pN-YM5"/>
                         <constraint firstAttribute="width" secondItem="hsI-7r-gFv" secondAttribute="height" id="zII-cN-tmm"/>
@@ -117,7 +116,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ch-yE-osE" customClass="CrossView" customModule="tic_tac_toe" customModuleProvider="target">
                     <rect key="frame" x="189" y="676" width="100" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="0ch-yE-osE" secondAttribute="height" id="IbV-ec-PmI"/>
                         <constraint firstAttribute="width" constant="100" id="Lyo-8e-a0d"/>
@@ -153,9 +152,4 @@
             <point key="canvasLocation" x="37" y="21"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

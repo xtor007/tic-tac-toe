@@ -49,10 +49,11 @@ class GameVC: UIViewController {
             if let frame = buttons[coordinates]?.frame {
                 let crossView = CrossView(frame: frame)
                 boardView.addSubview(crossView)
-                let noughtCoordinates = model.getMove()
-                if let frame = buttons[noughtCoordinates]?.frame {
-                    let noughtView = NoughtView(frame: frame)
-                    boardView.addSubview(noughtView)
+                model.getMove { noughtCoordinates in
+                    if let frame = self.buttons[noughtCoordinates]?.frame {
+                        let noughtView = NoughtView(frame: frame)
+                        self.boardView.addSubview(noughtView)
+                    }
                 }
             }
         }

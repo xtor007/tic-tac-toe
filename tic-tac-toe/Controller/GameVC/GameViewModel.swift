@@ -17,21 +17,28 @@ enum Algo: Int {
 
 class GameViewModel {
     
-    let algo: Algo
+    let algoManager: AlgoManager
     var position = Position()
     var isAlgoWork = false
     
     init(algo: Algo) {
-        self.algo = algo
+        self.algoManager = AlgoManager(algo: algo)
     }
     
     func isMovePossible(coordinates: Coordinates) -> Bool {
         return !isAlgoWork && position.makeMove(element: .cross, coordinates: coordinates)
     }
     
-    func getMove() -> Coordinates {
+    func getMove(onSucces: @escaping (Coordinates)->(Void)) {
         isAlgoWork = true
-        return Coordinates(x: 6, y: 7)
+        DispatchQueue.global(qos: .background).async {
+            let coordinates = self.algoManager.getMove(position: self.position)
+            let _ = self.position.makeMove(element: .nought, coordinates: coordinates)
+            self.isAlgoWork = false
+            DispatchQueue.main.async {
+                onSucces(coordinates)
+            }
+        }
     }
     
 }
