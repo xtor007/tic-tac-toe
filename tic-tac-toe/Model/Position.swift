@@ -110,9 +110,9 @@ struct Position {
                         depth += getDepth(coordinates: Coordinates(x: x, y: y), direction: direction.getOpposite(), element: currentElement, prevDepth: 1)
                         if depth > 2 {
                             if currentElement == element {
-                                myScore += Double(depth-1)
+                                myScore += depth-1
                             } else {
-                                enemyScore += Double(depth-1)
+                                enemyScore += depth-1
                             }
                         }
                     }
@@ -132,12 +132,16 @@ struct Position {
         return (myScore/(myScore+enemyScore)) - (enemyScore/(myScore+enemyScore))
     }
     
-    private mutating func getDepth(coordinates: Coordinates, direction: Direction, element: Element, prevDepth: Int) -> Int {
+    private mutating func getDepth(coordinates: Coordinates, direction: Direction, element: Element, prevDepth: Double) -> Double {
         if !coordinates.isRight() || mtx[coordinates.y][coordinates.x] == element.toogle() {
             return prevDepth
         }
         isHere[coordinates.y][coordinates.x] = true
-        return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+1)
+        if mtx[coordinates.y][coordinates.x] == nil {
+            return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+0.23)
+        } else {
+            return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+1)
+        }
     }
     
     private func isWinIn(coordinates: Coordinates, direction: Direction, element: Element, depth: Int) -> Bool {
