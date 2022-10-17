@@ -49,10 +49,20 @@ class GameVC: UIViewController {
             if let frame = buttons[coordinates]?.frame {
                 let crossView = CrossView(frame: frame)
                 boardView.addSubview(crossView)
+                if let winner = model.position.winner() {
+                    print(winner)
+                    return
+                }
                 model.getMove { noughtCoordinates in
                     if let frame = self.buttons[noughtCoordinates]?.frame {
                         let noughtView = NoughtView(frame: frame)
                         self.boardView.addSubview(noughtView)
+                        if let winner = self.model.position.winner() {
+                            print(winner)
+                        }
+                        if self.model.position.countOfEmpty == 0 {
+                            print("draw")
+                        }
                     }
                 }
             }

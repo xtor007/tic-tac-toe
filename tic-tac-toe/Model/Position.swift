@@ -61,18 +61,23 @@ struct Position {
     
     private(set) var mtx: [[Element?]]
     
+    private(set) var countOfEmpty: Int
+    
     init() {
         mtx = Array(repeating: Array(repeating: nil, count: 10), count: 10)
+        countOfEmpty = 100
     }
     
     init(addValueTo coordinates: Coordinates, element: Element, from: Position) {
         mtx = from.mtx
         mtx[coordinates.y][coordinates.x] = element
+        countOfEmpty = from.countOfEmpty - 1
     }
     
     mutating func makeMove(element: Element, coordinates: Coordinates) -> Bool {
         if mtx[coordinates.y][coordinates.x] == nil {
             mtx[coordinates.y][coordinates.x] = element
+            countOfEmpty -= 1
             return true
         } else {
             return false

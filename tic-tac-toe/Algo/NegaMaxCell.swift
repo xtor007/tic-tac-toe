@@ -34,6 +34,10 @@ class NegaMaxCell {
             power = position.calculatePower(forElement: move)
             return
         }
+        if position.countOfEmpty == 0 { //draw
+            power = 0
+            return
+        }
         findChildren()
         findPower()
     }
