@@ -50,7 +50,11 @@ class GameVC: UIViewController {
                 let crossView = CrossView(frame: frame)
                 boardView.addSubview(crossView)
                 if let winner = model.position.winner() {
-                    print(winner)
+                    if winner == .cross {
+                        endGame(status: .win)
+                    } else {
+                        endGame(status: .lose)
+                    }
                     return
                 }
                 model.getMove { noughtCoordinates in
@@ -58,15 +62,32 @@ class GameVC: UIViewController {
                         let noughtView = NoughtView(frame: frame)
                         self.boardView.addSubview(noughtView)
                         if let winner = self.model.position.winner() {
-                            print(winner)
+                            if winner == .cross {
+                                self.endGame(status: .win)
+                            } else {
+                                self.endGame(status: .lose)
+                            }
                         }
                         if self.model.position.countOfEmpty == 0 {
-                            print("draw")
+                            self.endGame(status: .draw)
                         }
                     }
                 }
             }
         }
+    }
+    
+    private func endGame(status: GameStatus) {
+        let finishGameVC = FinishGameVC(status: status, duration: model.algoManager.duration, delegate: self)
+        present(finishGameVC, animated: true)
+    }
+    
+}
+
+extension GameVC: FatherViewDelegate {
+    
+    func close() {
+        dismiss(animated: false)
     }
     
 }
