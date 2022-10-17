@@ -61,8 +61,6 @@ struct Position {
     
     private(set) var mtx: [[Element?]]
     
-    private var isHere = Array(repeating: Array(repeating: false, count: 10), count: 10)
-    
     init() {
         mtx = Array(repeating: Array(repeating: nil, count: 10), count: 10)
     }
@@ -97,23 +95,19 @@ struct Position {
         return nil
     }
     
-    mutating func calculatePower(forElement element: Element) -> Double {
+    func calculatePower(forElement element: Element) -> Double {
         var myScore = 0.0
         var enemyScore = 0.0
-        isHere = Array(repeating: Array(repeating: false, count: 10), count: 10)
         for y in 0..<10 {
             for x in 0..<10 {
                 if let currentElement = mtx[y][x] {
-                    isHere[y][x] = true
                     for direction in Direction.halfDirection {
-                        var depth = getDepth(coordinates: Coordinates(x: x, y: y), direction: direction, element: currentElement, prevDepth: 1)
-                        depth += getDepth(coordinates: Coordinates(x: x, y: y), direction: direction.getOpposite(), element: currentElement, prevDepth: 1)
-                        if depth > 2 {
-                            if currentElement == element {
-                                myScore += depth-1
-                            } else {
-                                enemyScore += depth-1
-                            }
+                        var depth = getDepth(coordinates: Coordinates(x: x, y: y), direction: direction, element: currentElement, prevDepth: 0)
+                        depth += getDepth(coordinates: Coordinates(x: x, y: y), direction: direction.getOpposite(), element: currentElement, prevDepth: 0)
+                        if currentElement == element {
+                            myScore += depth
+                        } else {
+                            enemyScore += depth
                         }
                     }
                 }
@@ -128,17 +122,17 @@ struct Position {
         if enemyScore == 0 {
             return 0.99
         }
-        enemyScore *= 2
-        return (myScore/(myScore+enemyScore)) - (enemyScore/(myScore+enemyScore))
+        //enemyScore *= 2
+        //return (myScore/(myScore+enemyScore)) - (enemyScore/(myScore+enemyScore))
+        return 1 - 2*(enemyScore/(myScore+enemyScore))
     }
     
-    private mutating func getDepth(coordinates: Coordinates, direction: Direction, element: Element, prevDepth: Double) -> Double {
+    private func getDepth(coordinates: Coordinates, direction: Direction, element: Element, prevDepth: Double) -> Double {
         if !coordinates.isRight() || mtx[coordinates.y][coordinates.x] == element.toogle() {
             return prevDepth
         }
-        isHere[coordinates.y][coordinates.x] = true
         if mtx[coordinates.y][coordinates.x] == nil {
-            return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+0.23)
+            return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+0.6)
         } else {
             return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+1)
         }
