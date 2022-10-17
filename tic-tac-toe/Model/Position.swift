@@ -100,14 +100,36 @@ struct Position {
         var enemyScore = 0.0
         for y in 0..<10 {
             for x in 0..<10 {
-                if let currentElement = mtx[y][x] {
-                    for direction in Direction.halfDirection {
-                        var depth = getDepth(coordinates: Coordinates(x: x, y: y), direction: direction, element: currentElement, prevDepth: 0)
-                        depth += getDepth(coordinates: Coordinates(x: x, y: y), direction: direction.getOpposite(), element: currentElement, prevDepth: 0)
-                        if currentElement == element {
-                            myScore += depth
-                        } else {
-                            enemyScore += depth
+                if mtx[y][x] == nil {
+                    for direction in Direction.allDirections {
+                        let coordinates = Coordinates(x: x, y: y).afterMove(direction)
+                        if coordinates.isRight() {
+                            if let currentElement = mtx[coordinates.y][coordinates.x] {
+                                let depth = getDepth(
+                                    coordinates: coordinates,
+                                    direction: direction,
+                                    element: currentElement,
+                                    prevDepth: 0
+                                )
+                                var score = 0.0
+                                switch depth {
+                                case 1:
+                                    score = 0.05
+                                case 2:
+                                    score = 0.15
+                                case 3:
+                                    score = 0.3
+                                case 4:
+                                    score = 1
+                                default:
+                                    score = 0
+                                }
+                                if currentElement == element {
+                                    myScore += score
+                                } else {
+                                    enemyScore += score
+                                }
+                            }
                         }
                     }
                 }
@@ -122,20 +144,14 @@ struct Position {
         if enemyScore == 0 {
             return 0.99
         }
-        //enemyScore *= 2
-        //return (myScore/(myScore+enemyScore)) - (enemyScore/(myScore+enemyScore))
         return 1 - 2*(enemyScore/(myScore+enemyScore))
     }
     
     private func getDepth(coordinates: Coordinates, direction: Direction, element: Element, prevDepth: Double) -> Double {
-        if !coordinates.isRight() || mtx[coordinates.y][coordinates.x] == element.toogle() {
+        if !coordinates.isRight() || mtx[coordinates.y][coordinates.x] != element {
             return prevDepth
         }
-        if mtx[coordinates.y][coordinates.x] == nil {
-            return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+0.6)
-        } else {
-            return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+1)
-        }
+        return getDepth(coordinates: coordinates.afterMove(direction), direction: direction, element: element, prevDepth: prevDepth+1)
     }
     
     private func isWinIn(coordinates: Coordinates, direction: Direction, element: Element, depth: Int) -> Bool {
