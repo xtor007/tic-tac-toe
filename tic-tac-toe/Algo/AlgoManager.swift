@@ -32,8 +32,9 @@ class AlgoManager {
             cell.go(prevValue: -1)
             solution = cell.solution
         case .negaScout:
-            print(2)
-            return Coordinates(x: 0, y: 0)
+            let cell = NegaScoutCell(position: position, change: Coordinates(x: 0, y: 0), depth: depth, move: .nought)
+            cell.negaScoutGo(prevValue: -1)
+            solution = cell.solution
         }
         let finishTime = CFAbsoluteTimeGetCurrent()
         duration.durations.append(finishTime - startTime)

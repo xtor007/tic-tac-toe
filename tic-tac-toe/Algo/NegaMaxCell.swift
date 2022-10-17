@@ -14,7 +14,7 @@ class NegaMaxCell {
     let depth: Int
     let move: Element
     
-    var children = [PruningCell]()
+    var children = [NegaScoutCell]()
     var power = -1.0
     var solution: Coordinates!
     
@@ -56,7 +56,7 @@ class NegaMaxCell {
         for y in 0..<10 {
             for x in 0..<10 {
                 if position.mtx[y][x] == nil {
-                    children.append(PruningCell(
+                    children.append(NegaScoutCell(
                         position: Position(addValueTo: Coordinates(x: x, y: y), element: move, from: position),
                         change: Coordinates(x: x, y: y),
                         depth: depth-1,
