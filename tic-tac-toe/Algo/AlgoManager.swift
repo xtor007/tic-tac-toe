@@ -28,8 +28,9 @@ class AlgoManager {
             cell.go()
             solution = cell.solution
         case .pruning:
-            print(1)
-            return Coordinates(x: 0, y: 0)
+            let cell = PruningCell(position: position, change: Coordinates(x: 0, y: 0), depth: depth, move: .nought)
+            cell.go(prevValue: -1)
+            solution = cell.solution
         case .negaScout:
             print(2)
             return Coordinates(x: 0, y: 0)
